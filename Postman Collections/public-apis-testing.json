@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "aa26b8b7-793d-406b-8115-5801e34f2dd3",
+		"name": "Public Apis No Token",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Public apis",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "22432e18-c2f1-467d-a385-4b83b028ee0f",
+						"exec": [
+							"pm.test(\"Valid Response status\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Key: count\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).haveOwnProperty('count')\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Key: entries\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).haveOwnProperty('entries');\r",
+							"});\r",
+							"\r",
+							"pm.test.skip(\"Check count\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.count).to.eq(1425);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "1a7e398c-462e-4fd1-96a5-36ca3ed0f09a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://api.publicapis.org/entries"
+			},
+			"response": []
+		},
+		{
+			"name": "Real Time Bitcoin Price",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "86c0bbdf-6e3a-40e1-b482-53bf99f608e4",
+						"exec": [
+							"pm.test(\"Check Response Status\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check whether the coin is Bitcoin\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.chartName).to.eq('Bitcoin');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "c1170715-a29b-4347-baaf-454ab7622aa1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://api.coindesk.com/v1/bpi/currentprice.json"
+			},
+			"response": []
+		}
+	]
+}
