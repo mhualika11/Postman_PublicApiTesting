@@ -159,7 +159,7 @@
 			"response": []
 		},
 		{
-			"name": "edits",
+			"name": "Chat GPT edits",
 			"id": "8fa099ef-6490-49cd-b166-6658a1bf736f",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
