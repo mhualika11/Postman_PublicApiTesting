@@ -134,6 +134,41 @@
 		},
 		{
 			"name": "Chat GPT completions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fabba627-7613-4553-a594-c8d8a68916ad",
+						"exec": [
+							"pm.test(\"Check the request body: model\", function(){\r",
+							"    var requestBody = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(requestBody).haveOwnProperty(\"model\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check the request body: prompt\", function(){\r",
+							"    var requestBody = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(requestBody).haveOwnProperty(\"prompt\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check the request body: temperature\", function(){\r",
+							"    var requestBody = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(requestBody).haveOwnProperty(\"temperature\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check the request body: max_tokens\", function(){\r",
+							"    var requestBody = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(requestBody).haveOwnProperty(\"max_tokens\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Authorization in header\", function(){\r",
+							"    console.log(pm.request.headers.toJSON())\r",
+							"    pm.expect(pm.request.to.have.header(\"Authorization\"));\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"id": "0f5d19d1-4ddb-4e3c-a085-c122ee333457",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -187,7 +222,7 @@
 	],
 	"variable": [
 		{
-			"id": "5a1d3d04-b4a9-4532-8480-283f20ea1bd6",
+			"id": "e1dae1da-b79d-4724-93db-59d21721e432",
 			"key": "YOUR_API_KEY",
 			"value": "testing"
 		}
