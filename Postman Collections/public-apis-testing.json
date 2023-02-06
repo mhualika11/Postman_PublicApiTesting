@@ -133,7 +133,7 @@
 			"response": []
 		},
 		{
-			"name": "completions",
+			"name": "Chat GPT completions",
 			"id": "0f5d19d1-4ddb-4e3c-a085-c122ee333457",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
