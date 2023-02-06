@@ -86,7 +86,7 @@
 			"response": []
 		},
 		{
-			"name": "models",
+			"name": "Chat GPT models",
 			"event": [
 				{
 					"listen": "test",
