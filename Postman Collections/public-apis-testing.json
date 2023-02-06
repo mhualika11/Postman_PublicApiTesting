@@ -184,5 +184,12 @@
 			},
 			"response": []
 		}
+	],
+	"variable": [
+		{
+			"id": "5a1d3d04-b4a9-4532-8480-283f20ea1bd6",
+			"key": "YOUR_API_KEY",
+			"value": "testing"
+		}
 	]
 }
