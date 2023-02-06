@@ -84,6 +84,105 @@
 				"url": "https://api.coindesk.com/v1/bpi/currentprice.json"
 			},
 			"response": []
+		},
+		{
+			"name": "models",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17d1ecfd-4bd9-44ce-84a1-07a4b6d24d5b",
+						"exec": [
+							"pm.test(\"Check the response status\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check key: object\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).haveOwnProperty(\"object\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check key: data\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).haveOwnProperty(\"data\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "8541a393-b30a-4657-89b1-256202e7292b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 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"
+					},
+					{
+						"key": "OpenAI-Organization",
+						"value": "org-AAe3Q8A22CQQYh1wj2mKYslC"
+					}
+				],
+				"url": "https://api.openai.com/v1/models"
+			},
+			"response": []
+		},
+		{
+			"name": "completions",
+			"id": "0f5d19d1-4ddb-4e3c-a085-c122ee333457",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{YOUR_API_KEY}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"model\": \"davinci-instruct-beta\",\n    \"prompt\": \"Explain quantum computing in simple terms\",\n    \"temperature\": 0,\n    \"max_tokens\": 100\n}"
+				},
+				"url": "https://api.openai.com/v1/completions"
+			},
+			"response": []
+		},
+		{
+			"name": "edits",
+			"id": "8fa099ef-6490-49cd-b166-6658a1bf736f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{YOUR_API_KEY}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"model\": \"text-davinci-edit-001\",\n  \"input\": \"What day of the wek is it?\",\n  \"instruction\": \"Fix the spelling mistakes\"\n}"
+				},
+				"url": "https://api.openai.com/v1/edits"
+			},
+			"response": []
 		}
 	]
 }
