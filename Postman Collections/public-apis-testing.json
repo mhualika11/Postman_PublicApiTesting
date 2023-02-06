@@ -36,7 +36,7 @@
 					}
 				}
 			],
-			"_postman_id": "1a7e398c-462e-4fd1-96a5-36ca3ed0f09a",
+			"id": "1a7e398c-462e-4fd1-96a5-36ca3ed0f09a",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -62,13 +62,19 @@
 							"pm.test(\"Check whether the coin is Bitcoin\", function(){\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.chartName).to.eq('Bitcoin');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Date\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    var now = new Date();\r",
+							"    pm.expect(new Date(jsonData.time.updated).toISOString().split('T')[0]).to.eq(now.toISOString().split('T')[0]);\r",
 							"});"
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"_postman_id": "c1170715-a29b-4347-baaf-454ab7622aa1",
+			"id": "c1170715-a29b-4347-baaf-454ab7622aa1",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
